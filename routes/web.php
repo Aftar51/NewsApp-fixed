@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\NewsController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,53 @@ Route::middleware('auth')->group(function () {
             // reset password user
             Route::put('/reset-password/{id}',[\App\Http\Controllers\Profile\ProfileController::class, 'resetPassword'])->name('resetPassword');
 
-           
     });
+});
+
+//storage:link
+Route::get('/storage-link', function () {
+    Artisan::call('storage:link');
+    return 'storage:link berhasil dijalankan';
+});
+
+//config:cache
+Route::get('/config-cache', function () {
+    Artisan::call('config:cache');
+    return 'config:cache berhasil dijalankan';
+});
+
+//config:clear
+Route::get('/config-clear', function () {
+    Artisan::call('config:clear');
+    return 'config:clear berhasil dijalankan';
+});
+
+//cache:clear
+Route::get('/cache-clear', function () {
+    Artisan::call('cache:clear');
+    return 'confiq:cear berhasil dijalankan';
+});
+
+//view:clear
+Route::get('/view-clear', function () {
+    Artisan::call('view:clear');
+    return 'view:clear berhasil dijalankan';
+});
+
+//view:cache
+Route::get('/view-cache', function () {
+    Artisan::call('view:cache');
+    return 'view:cache berhasil dijalankan';
+});
+
+//route:clear
+Route::get('/route-clear', function () {
+    Artisan::call('route:clear');
+    return 'route:clear berhasil dijalankan';
+});
+
+//route:cache
+Route::get('/route-cache', function () {
+    Artisan::call('route:cache');
+    return 'route:cache berhasil dijalankan';
 });
